@@ -20,7 +20,7 @@ router.post('/', async (req: Request, res: Response) => {
 
     if (!name || !ticker || !description) {
         console.error('Missing params');
-        res.status(400).send({
+        return res.status(400).send({
             error: {
                 code: 400,
                 message: 'Missing params'
