@@ -1,0 +1,111 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "BCAS Token API",
+        "description": "API for managing tokens in the BCAS project.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "Local server"
+        }
+    ],
+    "paths": {
+        "/tokens": {
+            "post": {
+                "summary": "Create a new token",
+                "description": "Endpoint to create a new token.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "The name of the token."
+                                    },
+                                    "ticker": {
+                                        "type": "string",
+                                        "description": "The ticker symbol of the token."
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "A brief description of the token."
+                                    }
+                                },
+                                "required": ["name", "ticker", "description"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Token created successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/tokens/{id}": {
+            "get": {
+                "summary": "Get token by ID",
+                "description": "Endpoint to retrieve a token by its ID.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the token to retrieve.",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Token found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer",
+                                            "description": "The ID of the token."
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "description": "The name of the token."
+                                        },
+                                        "ticker": {
+                                            "type": "string",
+                                            "description": "The ticker symbol of the token."
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "A brief description of the token."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Token not found"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    }
+}
