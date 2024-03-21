@@ -22,15 +22,21 @@ app.use(routes);
 // define swagger endpoint
 app.use('/api-docs', swaggerSetup);
 
-// run database migration
-migrate()
-    .then(() => {
-        // start server after migration has finished
+// Define an async function to perform migration and start the server
+async function start() {
+    try {
+        // Call migrate function
+        await migrate();
+
+        // Start server
         app.listen(PORT, () => {
             console.log(`Server is running on http://localhost:${PORT}`);
         });
-    })
-    .catch((err) => {
+    } catch (err) {
         console.error('Error migrating database:', err);
         process.exit(1);
-    });
+    }
+}
+
+// Call the async function to start the server
+start();
