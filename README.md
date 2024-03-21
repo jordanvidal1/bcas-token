@@ -2,13 +2,17 @@
 
 ## Overview
 
-This project is a simple API for managing token records in a PostgreSQL database. It provides endpoints for creating new token records and retrieving token records by their IDs.
+### What are tokens?
 
-### What are Tokens?
-
-In the context of the cryptocurrency industry, tokens represent digital assets that can have various utilities. They can represent assets like currencies, commodities, or even rights to access certain services or platforms. Tokens are often built on existing blockchain platforms like Ethereum or Binance Smart Chain, utilizing smart contracts to define their behavior.
+In the context of the cryptocurrency industry, tokens represent digital assets that can have various utilities. They can represent assets like currencies, commodities, or even rights to access certain services or platforms. Tokens are often built on existing blockchain platforms like Ethereum or Binance Smart Chain, utilizing smart contracts to define their behaviour.
 
 Tokens play a significant role in decentralized finance (DeFi), allowing users to participate in various financial activities such as lending, borrowing, trading, and providing liquidity.
+
+### API rationale
+
+This project is a simple API for managing token records in a PostgreSQL database. It provides endpoints for creating new token records and retrieving token records by ID. This API would aim to simplify the process of handling token-related data, thereby accelerating the development of innovative blockchain solutions and fostering broader adoption of tokenized assets.
+
+This functionality would be essential for applications dealing with tokenized assets, decentralized finance (DeFi) platforms, non-fungible tokens (NFTs), and various other blockchain-based use cases.
 
 ## How to Use the API
 
