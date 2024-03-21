@@ -16,19 +16,6 @@ You can access the API at [https://bcas-token.onrender.com/](https://bcas-token.
 
 The Swagger documentation is available at [https://bcas-token.onrender.com/api-docs](https://bcas-token.onrender.com/api-docs). Use the provided endpoints to create and retrieve token records.
 
-## How to access the database
-
-You can access the database using the following credentials:
-
--   host: dpg-cntv82821fec73bki450-a.frankfurt-postgres.render.com
--   name: bcas_token_postgresql
--   user: bcas_token_postgresql_user
--   password: QOFt8t3HVuu4qupfwGvyRCupHxGQmy71
-
-or
-
--   connection_string: [postgres://bcas_token_postgresql_user:QOFt8t3HVuu4qupfwGvyRCupHxGQmy71@dpg-cntv82821fec73bki450-a.frankfurt-postgres.render.com/bcas_token_postgresql](postgres://bcas_token_postgresql_user:QOFt8t3HVuu4qupfwGvyRCupHxGQmy71@dpg-cntv82821fec73bki450-a.frankfurt-postgres.render.com/bcas_token_postgresql)
-
 ### API Endpoints
 
 -   POST /tokens: Creates a new token record in the database.
@@ -69,3 +56,45 @@ or
             }
         }
         ```
+
+## How to access the database
+
+You can access the database using the following credentials:
+
+-   host: dpg-cntv82821fec73bki450-a.frankfurt-postgres.render.com
+-   name: bcas_token_postgresql
+-   user: bcas_token_postgresql_user
+-   password: QOFt8t3HVuu4qupfwGvyRCupHxGQmy71
+
+or
+
+-   connection_string: [postgres://bcas_token_postgresql_user:QOFt8t3HVuu4qupfwGvyRCupHxGQmy71@dpg-cntv82821fec73bki450-a.frankfurt-postgres.render.com/bcas_token_postgresql](postgres://bcas_token_postgresql_user:QOFt8t3HVuu4qupfwGvyRCupHxGQmy71@dpg-cntv82821fec73bki450-a.frankfurt-postgres.render.com/bcas_token_postgresql)
+
+## How to setup the project locally
+
+To run the project locally, follow these steps:
+
+```bash
+# Clone the repository
+git clone https://github.com/jordanvidal1/bcas-token.git
+
+# Navigate to the project directory
+cd bcas-token
+
+# Install dependencies
+npm install
+# or
+yarn install
+
+# Set up environment variables
+echo "PORT=3000" >> .env
+echo "DB_HOST=your_database_host" >> .env
+echo "DB_USER=your_database_username" >> .env
+echo "DB_PASSWORD=your_database_password" >> .env
+echo "DB_NAME=your_database_name" >> .env
+
+# Start the server
+npm dev
+# or
+yarn dev
+```

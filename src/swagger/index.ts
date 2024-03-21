@@ -4,6 +4,7 @@ import * as swaggerDocument from '../../swagger.json';
 
 const router = express.Router();
 
+// define swagger
 router.use('/', swaggerUi.serve);
 router.get('/', swaggerUi.setup(swaggerDocument));
 

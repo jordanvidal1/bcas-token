@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+// create exportable environment config
 const config = {
     env: process.env.NODE_ENV,
     port: process.env.PORT,

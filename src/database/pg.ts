@@ -1,6 +1,7 @@
 import { Pool } from 'pg';
 import config from '../config';
 
+// Create pool to allow connections
 const pool = new Pool({
     host: config.db.host,
     user: config.db.user,
