@@ -25,6 +25,10 @@ You can access the database using the following credentials:
 -   user: bcas_token_postgresql_user
 -   password: QOFt8t3HVuu4qupfwGvyRCupHxGQmy71
 
+or
+
+-   connection_string: [postgres://bcas_token_postgresql_user:QOFt8t3HVuu4qupfwGvyRCupHxGQmy71@dpg-cntv82821fec73bki450-a.frankfurt-postgres.render.com/bcas_token_postgresql](postgres://bcas_token_postgresql_user:QOFt8t3HVuu4qupfwGvyRCupHxGQmy71@dpg-cntv82821fec73bki450-a.frankfurt-postgres.render.com/bcas_token_postgresql)
+
 ### API Endpoints
 
 -   POST /tokens: Creates a new token record in the database.
