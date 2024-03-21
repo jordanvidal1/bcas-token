@@ -15,14 +15,14 @@ SELECT id, name, ticker, description
 FROM tokens
 WHERE id = $1;`;
 
-router.post('/', async (req: Request, res: Response) => {
+const createToken = async (req: Request, res: Response) => {
     const { name, ticker, description } = req.body;
 
     if (!name || !ticker || !description) {
         console.error('Missing params');
         return res.status(400).send({
             error: {
-                code: 400,
+                status: 400,
                 message: 'Missing params'
             }
         });
@@ -48,14 +48,14 @@ router.post('/', async (req: Request, res: Response) => {
         console.error('Error creating token:', err);
         res.status(500).send({
             error: {
-                code: 500,
+                status: 500,
                 message: 'Internal Server Error'
             }
         });
     }
-});
+};
 
-router.get('/:id', async (req: Request, res: Response) => {
+const getToken = async (req: Request, res: Response) => {
     const tokenId = req.params.id;
 
     try {
@@ -73,7 +73,7 @@ router.get('/:id', async (req: Request, res: Response) => {
             // if no token send 404 and error message
             res.status(404).send({
                 error: {
-                    code: 404,
+                    status: 404,
                     message: 'Token not found'
                 }
             });
@@ -86,11 +86,17 @@ router.get('/:id', async (req: Request, res: Response) => {
         console.error('Error retrieving token:', err);
         res.status(500).send({
             error: {
-                code: 500,
+                status: 500,
                 message: 'Internal Server Error'
             }
         });
     }
-});
+};
+
+export { createToken, getToken };
+
+router.post('/', createToken);
+
+router.get('/:id', getToken);
 
 export default router;
