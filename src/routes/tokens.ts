@@ -18,6 +18,11 @@ WHERE id = $1;`;
 router.post('/', async (req: Request, res: Response) => {
     const { name, ticker, description } = req.body;
 
+    if (!name || !ticker || !description) {
+        console.error('Missing params');
+        res.status(400).send('Missing params');
+    }
+
     try {
         // use pg client to connect
         const client = await pg.connect();
