@@ -10,42 +10,58 @@ In the context of the cryptocurrency industry, tokens represent digital assets t
 
 Tokens play a significant role in decentralized finance (DeFi), allowing users to participate in various financial activities such as lending, borrowing, trading, and providing liquidity.
 
+## How to Use the API
+
+You can access the API at [https://bcas-token.onrender.com/](https://bcas-token.onrender.com/).
+
+The Swagger documentation is available at [https://bcas-token.onrender.com/api-docs](https://bcas-token.onrender.com/api-docs). Use the provided endpoints to create and retrieve token records.
+
+## How to access the database
+
+You can access the database using the following credentials:
+
+-   host: dpg-cntv82821fec73bki450-a.frankfurt-postgres.render.com
+-   name: bcas_token_postgresql
+-   user: bcas_token_postgresql_user
+-   password: QOFt8t3HVuu4qupfwGvyRCupHxGQmy71
+
 ### API Endpoints
 
-- POST /tokens: Creates a new token record in the database.
-  - Request Body:
-    ```json
-    {
-      "name": "Token Name",
-      "ticker": "TKN",
-      "description": "Brief description of the token."
-    }
-    ```
-  - Response:
-    ```json
-    {
-      "id": 1,
-      "name": "Token Name",
-      "ticker": "TKN",
-      "description": "Brief description of the token."
-    }
-    ```
+-   POST /tokens: Creates a new token record in the database.
 
-- GET /tokens/:id: Retrieves a token record by its ID.
-  - Response:
-    ```json
-    {
-      "id": 1,
-      "name": "Token Name",
-      "ticker": "TKN",
-      "description": "Brief description of the token."
-    }
-    ```
-  - If the token with the specified ID does not exist, it returns a 404 Not Found status code with the message "Token not found".
+    -   Request Body:
+        ```json
+        {
+            "name": "Token Name",
+            "ticker": "TKN",
+            "description": "Brief description of the token."
+        }
+        ```
+    -   Response:
+        ```json
+        {
+            "id": 1,
+            "name": "Token Name",
+            "ticker": "TKN",
+            "description": "Brief description of the token."
+        }
+        ```
 
-## Setup Instructions
-
-<!-- 1. Clone this repository:
-
-   ```bash
-   git clone https://github.com/your-username/token-api.git -->
+-   GET /tokens/:id: Retrieves a token record by its ID.
+    -   Response:
+        ```json
+        {
+            "id": 1,
+            "name": "Token Name",
+            "ticker": "TKN",
+            "description": "Brief description of the token."
+        }
+        ```
+    -   If the token with the specified ID does not exist, it returns a 404 Not Found status code with the response:
+        ```json
+        {
+            "error": {
+                "message": "Token not found"
+            }
+        }
+        ```
