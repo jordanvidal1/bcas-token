@@ -23,12 +23,14 @@ app.use(routes);
 app.use('/api-docs', swaggerSetup);
 
 // run database migration
-migrate().catch((err) => {
-    console.error('Error migrating database:', err);
-    process.exit(1);
-});
-
-// start server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+migrate()
+    .then(() => {
+        // start server after migration has finished
+        app.listen(PORT, () => {
+            console.log(`Server is running on http://localhost:${PORT}`);
+        });
+    })
+    .catch((err) => {
+        console.error('Error migrating database:', err);
+        process.exit(1);
+    });
